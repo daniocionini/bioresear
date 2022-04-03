@@ -1,6 +1,8 @@
 # bioresear
 A bioinformatics workflow manager that allows to standardise genome data formats and perform protein sequencing
 
+To start using the functionalities start by using file.id()
+
 --> Main Functionalities <--
 .id()
 -> extracts the informations about the sequence imported from the file
@@ -32,14 +34,7 @@ A bioinformatics workflow manager that allows to standardise genome data formats
 .protein()
 -> computes the proteins sequences in the dna sequence imported for blast evaluation while saving the file as .txt to the directory set as "direct_protein"
 
-.blast()
--> 
-
-
 
 --> Additional Functionalities <--
 1) Possibility to export protein outputs.
 Nedded to create a folder called "Exported Proteins" when set up the whole program
-
-2) In order to use .blast() you need to save the proteins_file.txt into directory as stated into the documentation
-
