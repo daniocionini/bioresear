@@ -14,7 +14,6 @@ list_of_variables = ['AA', 'AC', 'AT', 'AG', 'CA',
 
 
 rna_codons = {
-#https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Aminoacids_table.svg/1200px-Aminoacids_table.svg.png
     "UUU":"F", "UUC":"F",
     "UUA":"L", "UUG":"L",
     "CUU":"L", "CUC":"L", "CUA":"L", "CUG":"L",
@@ -74,7 +73,8 @@ dna_codons = {
 }
 
 """
-START CODON GENERALLY is ---->  "AUG"
+#https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Aminoacids_table.svg/1200px-Aminoacids_table.svg.png
+START CODON ---->  "AUG"
 V -> Val /// A -> Ala /// D -> Asp /// E -> Glu /// G -> Gly /// F -> Phe /// L -> Leu
 S -> Ser /// Y -> Tyr /// __ -> Stop /// C -> Cys /// W -> Trp /// L -> Leu /// P -> Pro
 H -> His /// Q -> Gln /// R -> Arg /// I -> Ile /// M -> Met /// T -> Thr /// N -> Asn
