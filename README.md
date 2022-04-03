@@ -4,6 +4,7 @@ A bioinformatics workflow manager that allows to standardise genome data formats
 To start using the functionalities start by using file.id()
 
 --> Main Functionalities <--
+
 .id()
 -> extracts the informations about the sequence imported from the file
 
@@ -36,5 +37,6 @@ To start using the functionalities start by using file.id()
 
 
 --> Additional Functionalities <--
+
 1) Possibility to export protein outputs.
 Nedded to create a folder called "Exported Proteins" when set up the whole program
