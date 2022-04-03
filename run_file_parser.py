@@ -8,18 +8,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-# for PyPDB -->
 import pypdb
 import untangle
 import requests
-#--------------------------------------------
+
 class bioresear:
 
     def __init__(self, input, file_type):
         self.input = input
         self.type = file_type
         self.doc = (open("D:\GitHub\easy_seq_file_parser\documentation.txt", "r")).read()
-#       ----
+
 
     def id(self):
         if self.type == 'fasta':
@@ -28,7 +27,7 @@ class bioresear:
         else:
             id = txt_file[:txt_file.index("other;")]
             print(id)
-#       ----
+
 
     def dna(self):
         if self.type == 'fasta':
@@ -44,7 +43,7 @@ class bioresear:
             dseq = dseq.replace('\n', '')
             dseq = dseq.upper()
             print(dseq)
-#       ----
+
 
 
     def compl(self):
@@ -55,9 +54,7 @@ class bioresear:
             for nuc, comp in {"T":"A", "C":"G", "G":"C", "A":"T"}.items():
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
-            #cdna =''.join(reversed(cdna))
             print(cdna)
-            #------
         else:
             dseq = txt_file[txt_file.index("other;"):]
             dseq = dseq.replace('other;','' )
@@ -103,7 +100,6 @@ class bioresear:
 
 
     def rna(self):
-        #https://www.genome.gov/sites/default/files/tg/en/illustration/messenger_rna.jpg
         if self.type == 'fasta':
             dseq = txt_file[txt_file.index("\n"):]
             dseq = dseq.replace('\n','')
@@ -114,7 +110,6 @@ class bioresear:
             rseq = cdna.replace('T', 'U')
             print(cdna)
             print(rseq)
-            #------
         else:
             dseq = txt_file[txt_file.index("other;"):]
             dseq = dseq.replace('other;','' )
@@ -133,7 +128,6 @@ class bioresear:
 
 
     def gc(self):
-        #https://geneticeducation.co.in/what-is-the-importance-of-gc-content/
         if self.type == 'fasta':
             dseq = txt_file[txt_file.index("\n"):]
             dseq = dseq.replace('\n','')
@@ -198,12 +192,9 @@ class bioresear:
             base = base.replace("'", "")
             base = base.replace(",", "")
             print(base)
-#       ----
 
 
     def open_r(self):
-        # first open reading frame using DNA sequence...
-        # ...needed to protein sequencing
         n = 3
         if self.type == 'fasta':
             dseq = txt_file[txt_file.index("\n"):]
@@ -212,14 +203,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -240,21 +229,17 @@ class bioresear:
             print(uno_frame)
             print(due_frame)
             print(tre_frame,'\n')
-            #from here non-reversed open reading frame
             dseq = txt_file[txt_file.index("\n"):]
             dseq = dseq.replace('\n','')
             for nuc, comp in {"T":"A", "C":"G", "G":"C", "A":"T"}.items():
                 dseq = dseq.replace(nuc.upper(),comp.lower())
-            #cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             n_uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -287,14 +272,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -315,7 +298,6 @@ class bioresear:
             print(uno_frame)
             print(due_frame)
             print(tre_frame, '\n')
-            #from here non-reversed open reading frame
             dseq = txt_file[txt_file.index("other;"):]
             dseq = dseq.replace('other;','' )
             dseq = ''.join([c for c in dseq if c not in list_of_numbers])
@@ -327,14 +309,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             n_uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -355,11 +335,8 @@ class bioresear:
             print(n_uno_frame)
             print(n_due_frame)
             print(n_tre_frame)
-#       ----
 
     def prot_seq(self):
-        # first open reading frame using DNA sequence...
-        # ...needed to protein sequencing
         n = 3
         if self.type == 'fasta':
             dseq = txt_file[txt_file.index("\n"):]
@@ -368,14 +345,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -405,21 +380,17 @@ class bioresear:
                 tre_frame = tre_frame.replace(pair.upper(), prot.lower())
             transl_3 = tre_frame.upper()
             print(transl_3)
-            #from here non-reversed open reading frame
             dseq = txt_file[txt_file.index("\n"):]
             dseq = dseq.replace('\n','')
             for nuc, comp in {"T":"A", "C":"G", "G":"C", "A":"T"}.items():
                 dseq = dseq.replace(nuc.upper(),comp.lower())
-            #cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             n_uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -461,14 +432,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -498,7 +467,6 @@ class bioresear:
                 tre_frame = tre_frame.replace(pair.upper(), prot.lower())
             transl_3 = tre_frame.upper()
             print(transl_3)
-            #from here non-reversed open reading frame
             dseq = txt_file[txt_file.index("other;"):]
             dseq = dseq.replace('other;','' )
             dseq = ''.join([c for c in dseq if c not in list_of_numbers])
@@ -510,14 +478,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             n_uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -547,12 +513,9 @@ class bioresear:
                 n_tre_frame = n_tre_frame.replace(pair.upper(), prot.lower())
             n_transl_3 = n_tre_frame.upper()
             print(n_transl_3)
-#-------------------------------------------------------
 
 
     def protein(self):
-        # first open reading frame using DNA sequence...
-        # ...needed to protein sequencing
         old_stdout = sys.stdout
         new_stdout = io.StringIO()
         sys.stdout = new_stdout
@@ -564,14 +527,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -641,21 +602,17 @@ class bioresear:
                     for i in range(len(current_prot)):
                         current_prot[i] += aa
             print(proteins)
-            #from here non-reversed open reading frame
             dseq = txt_file[txt_file.index("\n"):]
             dseq = dseq.replace('\n','')
             for nuc, comp in {"T":"A", "C":"G", "G":"C", "A":"T"}.items():
                 dseq = dseq.replace(nuc.upper(),comp.lower())
-            #cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             n_uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -746,14 +703,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -823,7 +778,6 @@ class bioresear:
                     for i in range(len(current_prot)):
                         current_prot[i] += aa
             print(proteins)
-            #from here non-reversed open reading frame
             dseq = txt_file[txt_file.index("other;"):]
             dseq = dseq.replace('other;','' )
             dseq = ''.join([c for c in dseq if c not in list_of_numbers])
@@ -835,14 +789,12 @@ class bioresear:
                 dseq = dseq.replace(nuc.upper(),comp.lower())
             cdna = dseq.upper()
             cdna =''.join(reversed(cdna))
-            #rseq = cdna.replace('T', 'U') #----NOT!
             base = [cdna[i:i+n] for i in range(0, len(cdna), n)]
             base = str(base)
             base = base.replace("[", "")
             base = base.replace("]", "")
             base = base.replace("'", "")
             base = base.replace(",", "")
-            # **from here** Open Reading Frame
             n_uno_frame = base
             cdna2 = cdna[1:]
             base2 = [cdna2[i:i+n] for i in range(0, len(cdna2), n)]
@@ -922,40 +874,10 @@ class bioresear:
                 for line in output:
                     f.write(line)
 
-
-
-    def blast(self): #TO FINISH!
-        #PyPDB used for large protein sequence dataset
-        #https://academic.oup.com/bioinformatics/article/32/1/159/1743800
-        #--> Functions --> https://academic.oup.com/view-large/35641249
-        open_protein = open(direct_protein, "r")
-        prot_file = open_protein.read()
-        prot_example = prot_file[prot_file.index("MESIYIFNIVFLIFLVRKHQILYWKK"):prot_file.index("jj")]
-        prot_example = prot_example.replace("\n", "")
-        print(prot_example)
-        #https://search.rcsb.org/#introduction  <--- new documentation
-
-
-# NEXT STEP: statistical analysis of genomic data
-
-
-#----------------------------------------
-
-#--------------------------------------------
-opener = open("D:\Datasets\Genes Sequences\LATS1\gene.txt", "r")
-direct_protein = "D:\GitHub\easy_seq_file_parser\Exported Proteins\\protein_list.txt" #yourdirectory +\\protein_list.txt"
+                    
+#-------------------------------------------- PRINT MAIN
+opener = open("YOUR_PATH", "r")
+direct_protein = "YOUR_PATH\protein_list.txt"
 txt_file = opener.read()
-file = bioresear(txt_file, 'fasta') #input of the class 
-
-
-#"D:\Danio DNA\GFXC935204_SA_L001_R1_001.fastq"
-"""file_dna = open("D:\Danio DNA\GFXC935204_SA_L001_R1_001.fastq", "r")
-number_of_lines = 100
-for i in range(number_of_lines):
-    line = file_dna.readline()
-    print(line)"""
-
-sample_dna = open("D:\\GitHub\\easy_seq_file_parser\\test_dataset\\sample_DANIO_dna.txt", "r")
-sample_dna = sample_dna.read()
-print(sample_dna)
-#https://github.com/adiamb/FASTQ_to_FASTA
+file = bioresear(txt_file, 'fasta') #file type
+#--------------------------------------------
