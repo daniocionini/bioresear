@@ -3,6 +3,7 @@ A bioinformatics workflow manager that allows to standardise genome data formats
 
 To start using the functionalities start by using file.id()
 
+
 --> Main Functionalities <--
 
 .id()
@@ -34,6 +35,7 @@ To start using the functionalities start by using file.id()
 
 .protein()
 -> computes the proteins sequences in the dna sequence imported for blast evaluation while saving the file as .txt to the directory set as "direct_protein"
+
 
 
 --> Additional Functionalities <--
