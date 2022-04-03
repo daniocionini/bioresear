@@ -3,25 +3,25 @@ A bioinformatics workflow manager that allows to standardise genome data formats
 
 --> Main Functionalities <--
 .id()
--> extracts informations about the sequence imported
+-> extracts the informations about the sequence imported from the file
 
 .dna()
--> extracts the dna sequence imported
+-> extracts only the dna sequence imported from the file
 
 .compl()
--> extracts the dna sequence imported and compute the complementary dna sequence (base change)
+-> prints the dna sequence imported and compute the complementary dna sequence (base change)
 
 .freq()
--> computes information about the frequency of the dna nucleotides
+-> computes information about the frequency of the dna nucleotides (A, G, C, T)
 
 .rna()
--> computes the rna sequence from the complementary dna sequence
+-> prints the complementary sequence and computes the rna sequence from the complementary dna sequence
 
 .gc()
--> computes the GC content of the dna sequence
+-> computes the GC content of the dna sequence (in %)
 
 .base()
--> computes the rna for 3 base pairs
+-> computes and prints the rna in 3 base pairs
 
 .open_r()
 -> computes the open reading frame of the dna and complementary dna sequences
@@ -30,7 +30,7 @@ A bioinformatics workflow manager that allows to standardise genome data formats
 -> computes the protein bases extracted from the open reading frame dna sequences
 
 .protein()
--> computes the proteins present in the dna sequence imported for blast evaluation
+-> computes the proteins sequences in the dna sequence imported for blast evaluation while saving the file as .txt to the directory set as "direct_protein"
 
 .blast()
 -> 
