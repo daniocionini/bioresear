@@ -1,4 +1,5 @@
-# bioresear
+## Bioresear README file
+
 A bioinformatics workflow manager that allows to standardise genome data formats and perform protein sequencing
 
 To start using the functionalities start by using file.id()
