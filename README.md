@@ -1,9 +1,9 @@
 ## Bioresear README file
+A bioinformatics workflow manager which the main goal is to allow to standardise genome data formats and perform protein sequencing while extracting relevant informations for analysis.
 
-A bioinformatics workflow manager that allows to standardise genome data formats and perform protein sequencing
+### Functionalities
 
 To start using the functionalities start by using file.id()
-
 
 --> Main Functionalities <--
 
