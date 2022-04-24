@@ -17,7 +17,6 @@ class bioresear:
     def __init__(self, input, file_type):
         self.input = input
         self.type = file_type
-        self.doc = (open("D:\GitHub\easy_seq_file_parser\documentation.txt", "r")).read()
 
 
     def id(self):
@@ -875,9 +874,10 @@ class bioresear:
                     f.write(line)
 
                     
-#-------------------------------------------- PRINT MAIN
-opener = open("YOUR_PATH", "r")
-direct_protein = "YOUR_PATH\protein_list.txt"
-txt_file = opener.read()
-file = bioresear(txt_file, 'fasta') #file type
+#-------------------------------------------- 
+# COMMAND LINE
+opener = open("YOUR_PATH", "r") #choose your fasta or embl file
+direct_protein = "YOUR_PATH\protein_list.txt" #choose your protein path where the results of the protein sequencing will be saved as a .txt file
+txt_file = opener.read() #N^DON'T CHANGE
+file = bioresear(txt_file, 'fasta') #specify the file type extension for faster and better file parsing
 #--------------------------------------------
