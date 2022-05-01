@@ -1,9 +1,11 @@
 ## Bioresear README file
-A bioinformatics workflow manager which the main goal is to allow to standardise genome data formats and perform protein sequencing while extracting relevant informations for analysis.
+Bioresear is the name of a bioinformatics workflow manager script that helps speed up file format standardisation process and ease the analysis performed on multi-omics dataset.
+
+The script is written on a Python language environment and is currently on the process of become a web application/portal.
+To use the script's functionalities please carefully read through the commands below.
 
 ### Functionalities
-
-To start using the functionalities start by using file.id()
+To start using the functionalities use file.id() in the command line or terminal.
 
 --> Main Functionalities <--
 
